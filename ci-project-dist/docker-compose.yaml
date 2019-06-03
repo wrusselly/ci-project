@@ -2,33 +2,26 @@ version: '3.7'
 services:
         account-service:
                 image: wrusselly/account-service
-                build: ./account-service
                 depends_on:
                         - mongo-service
                         - secret-service
         aes-encryption-service:
                 image: wrusselly/aes-encryption-service
-                build: ./aes-encryption-service
         authentication-client:
                 image: wrusselly/authentication-client
-                build: ./authentication-client
         authentication-service:
                 image: wrusselly/authentication-service
-                build: ./authentication-service
                 environment:
                         - ACTIVATION_LINK=http://${ACTIVATION_IP}/authentication/api/activate
         dashboard-client:
                 image: wrusselly/dashboard-client 
-                build: ./dashboard-client
         dashboard-service:
                 image: wrusselly/dashboard-service 
-                build: ./dashboard-service
                 depends_on:
                         - account-service
                         - session-token-service
         email-service: 
                 image: wrusselly/email-service 
-                build: ./email-service
                 depends_on:
                         - aes-encryption-service
                 environment:
@@ -38,7 +31,6 @@ services:
 
         gateway: 
                 image: wrusselly/gateway 
-                build: ./gateway
                 ports:
                         - target: 80
                           published: 80
@@ -50,23 +42,18 @@ services:
                         - dashboard-service
         group-service: 
                 image: wrusselly/group-service 
-                build: ./group-service
         mongo-service: 
                 image: wrusselly/mongo-service  
-                build: ./mongo-service
                 depends_on:
                         - mongo
         role-service: 
                 image: wrusselly/role-service
-                build: ./role-service
         secret-service: 
                 image: wrusselly/secret-service 
-                build: ./secret-service
                 depends_on:
                         - mongo-service
         session-token-service: 
                 image: wrusselly/session-token-service 
-                build: ./session-token-service
                 depends_on:
                         - mongo-service
                         - aes-encryption-service
