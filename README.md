@@ -21,7 +21,7 @@ Above is the architecture map for this project. Each component depends on any do
 * Gmail account with insecure apps enabled. 
 
 ### Steps: 
-**1.**	Create an environment variables file and source the file where the project will be built. The email service takes 3 environment variables (GMIAL_USER, GMAIL_PASS, SERVICE_NAME)and the authentication service takes one (ACTIVATION_LINK). An example file is below: 
+**1.**	Create an environment variables file and source the file where the project will be built. The email service takes 3 environment variables (GMIAL_USER, GMAIL_PASS, SERVICE_NAME)and the authentication service takes one (ACTIVATION_LINK). An example file is below. <localhost> will need to be replaced with the external ip of the machine running the application. 
 
     GMAIL_USER=example@gmail.com                                  #the account that will send activation emails 
     GMAIL_PASS=password                                           #the password for the account 
