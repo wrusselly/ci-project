@@ -1,4 +1,4 @@
-# ci-project
+# CI-Project
 
 ## Components 
 The goal of this project is to use docker-compose to deploy an application that provides secure login functionality. The app consists of 14 components: 
