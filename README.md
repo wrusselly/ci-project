@@ -1,7 +1,7 @@
 # ci-project
 
 ## Components 
-The goal of this project is to set up a continuous integration pipeline for an application that provides secure login functionality. The app consists of 14 components: 
+The goal of this project is to use docker-compose t deploy an application that provides secure login functionality. The app consists of 14 components: 
 *	1 gateway: this uses nginx to route traffic to the other components.
 *	2 Clients: these are the webpages written with VueJS.
 *	10 Services: these are the APIs for the app written in nodeJS. 
