@@ -28,6 +28,6 @@ Above is the architecture map for this project. Each component depends on any do
     SERVICE_NAME="my project"                                     #the name of the project that will appear on the email 
     ACTIVATION_LINK=http://localhost/authentication/api/activate  #the link that will be sent to users to activate their accounts 
 
-**2.**	Clone the project from git https://github.com/wrusselly/ci-project.git. Change into the ci-project-dist directory, where the docker-compose.yaml is. `Run docker-compose up –d`  
+**2.**	Clone the project from git https://github.com/wrusselly/ci-project.git. Change into the ci-project-dist directory, where the docker-compose.yaml is. Run `docker-compose up –d` to build and deploy the containers then `docker-compose push` to push all the images to docker hub. 
 
 
