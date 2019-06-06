@@ -1,33 +1,33 @@
 version: '3.7'
 services:
         account-service:
-                image: wrusselly/account-service:${BUILD_NUMBER}
+                image: ${DOCKER_USER}/account-service:${BUILD_NUMBER}
                 build: ./account-service
                 depends_on:
                         - mongo-service
                         - secret-service
         aes-encryption-service:
-                image: wrusselly/aes-encryption-service:${BUILD_NUMBER}
+                image: ${DOCKER_USER}/aes-encryption-service:${BUILD_NUMBER}
                 build: ./aes-encryption-service
         authentication-client:
-                image: wrusselly/authentication-client:${BUILD_NUMBER}
+                image: ${DOCKER_USER}/authentication-client:${BUILD_NUMBER}
                 build: ./authentication-client
         authentication-service:
-                image: wrusselly/authentication-service:${BUILD_NUMBER}
+                image: ${DOCKER_USER}/authentication-service:${BUILD_NUMBER}
                 build: ./authentication-service
                 environment:
                         - ACTIVATION_LINK=http://${ACTIVATION_IP}/authentication/api/activate
         dashboard-client:
-                image: wrusselly/dashboard-client:${BUILD_NUMBER} 
+                image: ${DOCKER_USER}/dashboard-client:${BUILD_NUMBER} 
                 build: ./dashboard-client
         dashboard-service:
-                image: wrusselly/dashboard-service:${BUILD_NUMBER} 
+                image: ${DOCKER_USER}/dashboard-service:${BUILD_NUMBER} 
                 build: ./dashboard-service
                 depends_on:
                         - account-service
                         - session-token-service
         email-service: 
-                image: wrusselly/email-service:${BUILD_NUMBER} 
+                image: ${DOCKER_USER}/email-service:${BUILD_NUMBER} 
                 build: ./email-service
                 depends_on:
                         - aes-encryption-service
@@ -37,7 +37,7 @@ services:
                         - SERVICE_NAME="CI project"
 
         gateway: 
-                image: wrusselly/gateway:${BUILD_NUMBER} 
+                image: ${DOCKER_USER}/gateway:${BUILD_NUMBER} 
                 build: ./gateway
                 ports:
                         - target: 80
@@ -49,7 +49,7 @@ services:
                         - authentication-service
                         - dashboard-service
         group-service: 
-                image: wrusselly/group-service:${BUILD_NUMBER} 
+                image: ${DOCKER_USER}/group-service:${BUILD_NUMBER} 
                 build: ./group-service
         mongo-service: 
                 image: wrusselly/mongo-service:${BUILD_NUMBER}  
@@ -57,15 +57,15 @@ services:
                 depends_on:
                         - mongo
         role-service: 
-                image: wrusselly/role-service:${BUILD_NUMBER}
+                image: ${DOCKER_USER}/role-service:${BUILD_NUMBER}
                 build: ./role-service
         secret-service: 
-                image: wrusselly/secret-service:${BUILD_NUMBER} 
+                image: ${DOCKER_USER}/secret-service:${BUILD_NUMBER} 
                 build: ./secret-service
                 depends_on:
                         - mongo-service
         session-token-service: 
-                image: wrusselly/session-token-service:${BUILD_NUMBER} 
+                image: ${DOCKER_USER}/session-token-service:${BUILD_NUMBER} 
                 build: ./session-token-service
                 depends_on:
                         - mongo-service
